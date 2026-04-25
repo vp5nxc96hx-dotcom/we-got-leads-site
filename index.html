@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Got Leads — Lead Generation &amp; Full-Service Digital Agency</title>
+<meta name="description" content="A full-service digital agency built around one outcome: more leads. Brand, social, SEO, web, creative, paid media, and automation — all pointed at your pipeline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0B0D;
+    --bg-alt: #111316;
+    --bg-card: #15181C;
+    --bg-light: #F4F3EF;
+    --bg-light-alt: #E8E6DE;
+    --text: #F4F3EF;
+    --text-dim: #8B8E95;
+    --text-ink: #0A0B0D;
+    --lime: #C8F542;
+    --lime-deep: #A8D728;
+    --hairline: rgba(244, 243, 239, 0.1);
+    --hairline-strong: rgba(244, 243, 239, 0.22);
+    --hairline-ink: rgba(10, 11, 13, 0.12);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 17px;
+    letter-spacing: -0.005em;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--lime); color: var(--bg); }
+
+  /* grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--lime);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--lime);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(200, 245, 66, 0.6);
+  }
+
+  /* ═══ NAV ═══ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10, 11, 13, 0);
+    transition: background 0.4s var(--ease), padding 0.4s var(--ease), backdrop-filter 0.4s var(--ease), border-color 0.4s var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  nav.scrolled {
+    background: rgba(10, 11, 13, 0.85);
+    backdrop-filter: blur(16px) saturate(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+    padding: 14px 48px;
+    border-bottom-color: var(--hairline);
+  }
+  .logo {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--lime);
+    position: relative;
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(200, 245, 66, 0.4);
+  }
+  .logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    background: var(--bg);
+    border-radius: 50%;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .nav-status::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--lime);
+    animation: statuspulse 2s infinite;
+  }
+  @keyframes statuspulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    background: var(--lime);
+    color: var(--bg);
+    border: 1px solid var(--lime);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.4s var(--ease);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--text);
+    transform: translateY(101%);
+    transition: transform 0.45s var(--ease);
+    z-index: -1;
+  }
+  .btn:hover::before { transform: translateY(0); }
+  .btn:hover { color: var(--lime); border-color: var(--text); }
+  .btn .arrow { display: inline-block; transition: transform 0.4s var(--ease); }
+  .btn:hover .arrow { transform: translateX(4px); }
+  .btn-nav { padding: 11px 20px; font-size: 12px; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--hairline-strong);
+  }
+  .btn-ghost::before { background: var(--lime); }
+  .btn-ghost:hover { color: var(--bg); border-color: var(--lime); }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    min-height: 100vh;
+    padding: 160px 0 100px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+  }
+  /* green glow */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 15% 20%, rgba(200, 245, 66, 0.18), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 95% 90%, rgba(200, 245, 66, 0.08), transparent 60%);
+    pointer-events: none;
+  }
+  /* grid */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--hairline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+    background-size: 72px 72px;
+    opacity: 0.5;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 80%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 56px;
+    width: 100%;
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-top-right {
+    display: flex;
+    gap: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .hero-top-right span strong {
+    color: var(--text);
+    font-weight: 500;
+    margin-right: 6px;
+  }
+
+  .hero-headline {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: clamp(48px, 10vw, 168px);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+    color: var(--text);
+    max-width: 13ch;
+  }
+  .hero-headline .lime {
+    color: var(--lime);
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 12;
+  }
+  .hero-headline .crossed {
+    position: relative;
+    display: inline-block;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+  .hero-headline .crossed::after {
+    content: '';
+    position: absolute;
+    left: -1%; right: -1%;
+    top: 55%;
+    height: 6px;
+    background: var(--lime);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s var(--ease) 0.7s;
+    border-radius: 3px;
+  }
+  .hero-headline.animated .crossed::after { transform: scaleX(1); }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .hero-sub {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--text);
+    opacity: 0.78;
+    max-width: 50ch;
+  }
+  .hero-sub em {
+    font-style: italic;
+    color: var(--lime);
+    opacity: 1;
+  }
+  .hero-cta-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .hero-micro {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* scrolling marquee */
+  .marquee {
+    overflow: hidden;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 18px 0;
+    position: relative;
+    background: var(--bg);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 64px;
+    animation: marquee 35s linear infinite;
+    white-space: nowrap;
+    will-change: transform;
+  }
+  .marquee-track span {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 64px;
+  }
+  .marquee-track span::after {
+    content: '●';
+    font-size: 10px;
+    color: var(--lime);
+  }
+  .marquee-track span em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--lime);
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ═══ SECTIONS ═══ */
+  section.block {
+    padding: 140px 0;
+    position: relative;
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: 80px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .section-chapter {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--lime);
+    letter-spacing: 0.12em;
+  }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .section-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: clamp(36px, 5.5vw, 80px);
+    line-height: 0.98;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    color: var(--text);
+    max-width: 22ch;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--lime);
+    font-weight: 400;
+    font-variation-settings: "opsz" 12;
+  }
+
+  /* ═══ PROBLEM ═══ */
+  .problem { background: var(--bg); }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .problem-cell {
+    background: var(--bg);
+    padding: 52px 36px;
+    position: relative;
+    counter-increment: problem-counter;
+  }
+  .problem-grid { counter-reset: problem-counter; }
+  .problem-cell::before {
+    content: counter(problem-counter, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--lime);
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 28px;
+  }
+  .problem-cell h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: 26px;
+    line-height: 1.15;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .problem-cell p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    opacity: 0.65;
+  }
+
+  /* ═══ SOLUTION ═══ */
+  .solution {
+    background: var(--bg-light);
+    color: var(--text-ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .solution::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 85% 10%, rgba(200, 245, 66, 0.25), transparent 60%);
+    pointer-events: none;
+  }
+  .solution .container { position: relative; }
+  .solution .section-head { border-bottom-color: var(--hairline-ink); }
+  .solution .section-label { color: rgba(10, 11, 13, 0.5); }
+  .solution .section-title { color: var(--text-ink); }
+  .solution .section-title em { color: var(--lime-deep); }
+  .solution .section-num { color: var(--lime-deep); }
+
+  .solution-intro {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: clamp(28px, 3.5vw, 48px);
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--text-ink);
+    letter-spacing: -0.03em;
+    max-width: 22ch;
+    margin-bottom: 64px;
+  }
+  .solution-intro em {
+    font-style: italic;
+    color: var(--lime-deep);
+    font-variation-settings: "opsz" 12;
+  }
+  .solution-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline-ink);
+    border-top: 1px solid var(--hairline-ink);
+    border-bottom: 1px solid var(--hairline-ink);
+    counter-reset: sol-counter;
+  }
+  .solution-list li {
+    background: var(--bg-light);
+    padding: 48px 32px;
+    position: relative;
+    counter-increment: sol-counter;
+    transition: background 0.4s var(--ease);
+  }
+  .solution-list li:hover { background: var(--bg-light-alt); }
+  .solution-list li::before {
+    content: '→';
+    font-size: 20px;
+    color: var(--lime-deep);
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .solution-list li h4 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: 20px;
+    line-height: 1.25;
+    font-weight: 500;
+    color: var(--text-ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .solution-list li p {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text-ink);
+    opacity: 0.7;
+  }
+
+  /* ═══ SERVICES ═══ */
+  .services { background: var(--bg); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .service-card {
+    background: var(--bg-card);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.5s var(--ease);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%; height: 2px;
+    background: var(--lime);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s var(--ease);
+  }
+  .service-card:hover { background: #1a1e23; }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--lime);
+    letter-spacing: 0.12em;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .service-num::after {
+    content: '';
+    flex: 0 0 auto;
+    width: 24px;
+    height: 1px;
+    background: var(--hairline-strong);
+    margin-left: 12px;
+  }
+  .service-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .service-body {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text);
+    opacity: 0.65;
+    flex-grow: 1;
+  }
+
+  /* ═══ TRUST ═══ */
+  .trust {
+    padding: 140px 0;
+    background: var(--bg);
+    border-top: 1px solid var(--hairline);
+    position: relative;
+    overflow: hidden;
+  }
+  .trust::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(200, 245, 66, 0.08), transparent 60%);
+    pointer-events: none;
+  }
+  .trust .container { position: relative; }
+
+  .trust-big {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+    padding: 72px 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .trust-stat {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: clamp(80px, 14vw, 220px);
+    font-weight: 500;
+    line-height: 0.88;
+    letter-spacing: -0.06em;
+    color: var(--lime);
+  }
+  .trust-stat .prefix {
+    font-size: 0.55em;
+    vertical-align: top;
+    font-weight: 400;
+    font-style: italic;
+    font-variation-settings: "opsz" 12;
+    color: var(--lime);
+    opacity: 0.7;
+  }
+  .trust-body h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: clamp(24px, 2.8vw, 34px);
+    line-height: 1.15;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .trust-body p {
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--text);
+    opacity: 0.72;
+    max-width: 52ch;
+  }
+  .trust-meta {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .trust-meta span:first-child { color: var(--lime); }
+
+  /* ═══ LOCAL / CAPABILITY ═══ */
+  .local {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--hairline);
+  }
+  .local-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .local-lead {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: clamp(22px, 2.6vw, 32px);
+    line-height: 1.2;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    max-width: 24ch;
+  }
+  .local-lead em {
+    font-style: italic;
+    color: var(--lime);
+    font-variation-settings: "opsz" 12;
+  }
+  .cap-list {
+    list-style: none;
+    border-top: 1px solid var(--hairline);
+    counter-reset: cap-counter;
+  }
+  .cap-list li {
+    counter-increment: cap-counter;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--hairline);
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 16px;
+    align-items: center;
+    transition: padding 0.4s var(--ease);
+  }
+  .cap-list li:hover { padding-left: 12px; }
+  .cap-list li::before {
+    content: counter(cap-counter, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+  }
+  .cap-list li .cap-name {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: clamp(20px, 2.4vw, 28px);
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    transition: color 0.3s var(--ease);
+  }
+  .cap-list li:hover .cap-name { color: var(--lime); }
+  .cap-list li .cap-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    opacity: 0.7;
+    transition: opacity 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .cap-list li:hover .cap-tag { opacity: 1; color: var(--lime); }
+
+  /* ═══ FINAL ═══ */
+  .final {
+    padding: 180px 0;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--hairline);
+  }
+  .final::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 50%, rgba(200, 245, 66, 0.25), transparent 65%),
+      radial-gradient(ellipse 100% 50% at 50% 100%, rgba(200, 245, 66, 0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .final::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(var(--hairline) 1px, transparent 1px);
+    background-size: 100% 120px;
+    opacity: 0.5;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+    pointer-events: none;
+  }
+  .final-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .final-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 40px;
+  }
+  .final-tag::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--lime);
+    animation: pulse 2.4s infinite var(--ease);
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(200, 245, 66, 0.6); }
+    70% { box-shadow: 0 0 0 14px rgba(200, 245, 66, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(200, 245, 66, 0); }
+  }
+  .final-headline {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 96;
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    color: var(--text);
+    margin-bottom: 36px;
+  }
+  .final-headline em {
+    font-style: italic;
+    color: var(--lime);
+    font-weight: 400;
+    font-variation-settings: "opsz" 12;
+  }
+  .final-sub {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--text);
+    opacity: 0.72;
+    max-width: 56ch;
+    margin: 0 auto 48px;
+  }
+  .final-cta {
+    margin-bottom: 28px;
+    display: inline-flex;
+  }
+  .final-micro {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .final-micro .divider { margin: 0 10px; opacity: 0.5; }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    padding: 56px 0 36px;
+    background: var(--bg);
+    color: var(--text);
+    border-top: 1px solid var(--hairline);
+  }
+  .footer-main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 44px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .footer-brand-note {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text);
+    opacity: 0.55;
+    max-width: 36ch;
+  }
+  .footer-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 18px;
+  }
+  .footer-col ul { list-style: none; columns: 2; column-gap: 24px; }
+  .footer-col li { margin-bottom: 10px; break-inside: avoid; }
+  .footer-col a, .footer-col span {
+    color: var(--text);
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: opacity 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .footer-col a:hover { opacity: 1; color: var(--lime); }
+  .footer-bottom {
+    margin-top: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ═══ ANIMATIONS ═══ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 1200px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 1024px) {
+    .container { padding: 0 32px; }
+    nav { padding: 18px 32px; }
+    nav.scrolled { padding: 13px 32px; }
+    .nav-status { display: none; }
+    .hero { padding: 140px 0 80px; }
+    .hero-top { flex-direction: column; align-items: flex-start; }
+    .hero-bottom { grid-template-columns: 1fr; gap: 40px; }
+    .hero-cta-wrap { align-items: flex-start; }
+    .hero-ctas { justify-content: flex-start; }
+    .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .solution-list { grid-template-columns: 1fr; }
+    .trust-big { grid-template-columns: 1fr; gap: 32px; padding: 48px 0; }
+    .local-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-main { grid-template-columns: 1fr; gap: 32px; }
+    section.block { padding: 100px 0; }
+    .trust, .final { padding: 100px 0; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-top-right { gap: 20px; font-size: 10px; flex-wrap: wrap; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { min-height: auto; padding: 36px 28px; }
+    .solution-list li { padding: 36px 28px; }
+    .problem-cell { padding: 44px 28px; }
+    .cap-list li { grid-template-columns: 36px 1fr; }
+    .cap-list li .cap-tag { display: none; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .marquee-track span { font-size: 18px; gap: 48px; }
+    .marquee-track { gap: 48px; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 0 22px; }
+    nav { padding: 14px 22px; }
+    nav.scrolled { padding: 12px 22px; }
+    .btn-nav { padding: 10px 16px; font-size: 11px; }
+    .btn { padding: 13px 22px; font-size: 12px; }
+    .logo { font-size: 19px; }
+    .logo-mark { width: 22px; height: 22px; }
+  }
+
+  @media (max-width: 360px) {
+    .container { padding: 0 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="logo"><span class="logo-mark"></span>We Got Leads</a>
+  <div class="nav-right">
+    <span class="nav-status">Accepting Clients · Q2</span>
+    <a href="#book" class="btn btn-nav">Free Consultation <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-top reveal">
+        <div class="eyebrow">Full-Service Digital Agency</div>
+        <div class="hero-top-right">
+          <span><strong>20+</strong> Specialists</span>
+          <span><strong>$10M+</strong> Managed Ad Spend</span>
+          <span><strong>2020 –</strong> Present</span>
+        </div>
+      </div>
+
+      <h1 class="hero-headline reveal" id="heroHeadline" style="--i: 1">
+        We don't <span class="crossed">pitch</span>.<br>
+        We bring <span class="lime">leads</span>.
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-sub reveal" style="--i: 2">
+          A full-service digital agency built around one outcome: <em>more leads</em>. Brand, social, SEO, web, creative, paid media, and automation — every service we offer is pointed at the same pipeline.
+        </p>
+        <div class="hero-cta-wrap reveal" style="--i: 3">
+          <div class="hero-ctas">
+            <a href="#book" class="btn">Free Consultation <span class="arrow">→</span></a>
+            <a href="#services" class="btn btn-ghost">View Services</a>
+          </div>
+          <div class="hero-micro">The right audience. The right way. The right time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Brand Design</span>
+    <span>Social Management</span>
+    <span>Social Growth</span>
+    <span>SEO</span>
+    <span>Web Development</span>
+    <span>Creative</span>
+    <span>Paid Media</span>
+    <span>Lead Gen <em>&amp;</em> Automation</span>
+    <span>Brand Design</span>
+    <span>Social Management</span>
+    <span>Social Growth</span>
+    <span>SEO</span>
+    <span>Web Development</span>
+    <span>Creative</span>
+    <span>Paid Media</span>
+    <span>Lead Gen <em>&amp;</em> Automation</span>
+  </div>
+</div>
+
+<!-- 2. PROBLEM -->
+<section class="block problem">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-chapter reveal">
+        <span class="section-num">I / VII</span>
+        <span class="section-label">The Problem</span>
+      </div>
+      <h2 class="section-title reveal" style="--i: 1">
+        Marketing without a pipeline is just <em>noise</em>.
+      </h2>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-cell reveal" style="--i: 0">
+        <h3>You're guessing.</h3>
+        <p>Ad creative by gut. Channel selection by rumor. Budget allocation by last quarter's assumptions. Without split-testing and data, every marketing decision is a coin flip you're paying full price for.</p>
+      </div>
+      <div class="problem-cell reveal" style="--i: 1">
+        <h3>You're invisible.</h3>
+        <p>The best place to bury a company is on page two of Google. Social algorithms reward consistency you can't maintain alone. Great service doesn't matter if nobody can find you.</p>
+      </div>
+      <div class="problem-cell reveal" style="--i: 2">
+        <h3>You're buried in it.</h3>
+        <p>You're running the business AND the marketing AND chasing the leads that don't convert. The stress is high, the workflow is manual, and every hour spent in the dashboard is an hour not spent closing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SOLUTION -->
+<section class="block solution">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-chapter reveal">
+        <span class="section-num">II / VII</span>
+        <span class="section-label">The Solution</span>
+      </div>
+      <h2 class="section-title reveal" style="--i: 1">
+        One team. One pipeline. <em>Every lever.</em>
+      </h2>
+    </div>
+
+    <p class="solution-intro reveal">
+      We're your full-service partner in Content Creation, Social Growth, Media Management, Design, Digital Ads, and more — aligned around <em>getting you leads</em>.
+    </p>
+
+    <ul class="solution-list">
+      <li class="reveal" style="--i: 0">
+        <h4>Strategic &amp; customized</h4>
+        <p>A marketing plan built for your business, not a template pulled from a drawer.</p>
+      </li>
+      <li class="reveal" style="--i: 1">
+        <h4>Optimized to convert</h4>
+        <p>Every asset, channel, and campaign is measured on the leads it actually produces.</p>
+      </li>
+      <li class="reveal" style="--i: 2">
+        <h4>Done-for-you</h4>
+        <p>20+ specialists handling the work so you can focus on running the business and closing the deals.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4. SERVICES -->
+<section class="block services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-chapter reveal">
+        <span class="section-num">III / VII</span>
+        <span class="section-label">Services</span>
+      </div>
+      <h2 class="section-title reveal" style="--i: 1">
+        We've got you <em>covered.</em>
+      </h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal" style="--i: 0">
+        <div class="service-num"><span>01</span><span>STRATEGY</span></div>
+        <h3 class="service-title">Brand Design &amp; Strategy</h3>
+        <p class="service-body">Get ahead of the competition by having a better plan. Our team will help identify the most effective strategies for client acquisition and growth.</p>
+      </div>
+
+      <div class="service-card reveal" style="--i: 1">
+        <div class="service-num"><span>02</span><span>SOCIAL</span></div>
+        <h3 class="service-title">Social Media Management</h3>
+        <p class="service-body">Take control of how your company looks online. We'll build the right social strategy that fits your goals and takes you to where you want to be.</p>
+      </div>
+
+      <div class="service-card reveal" style="--i: 2">
+        <div class="service-num"><span>03</span><span>GROWTH</span></div>
+        <h3 class="service-title">Social Growth</h3>
+        <p class="service-body">Don't get left behind in the new era of social media and brand building. We'll help you build a significant presence on all the big social platforms.</p>
+      </div>
+
+      <div class="service-card reveal" style="--i: 3">
+        <div class="service-num"><span>04</span><span>SEARCH</span></div>
+        <h3 class="service-title">SEO</h3>
+        <p class="service-body">The best place to bury a company is on the second page of Google. We'll help you attain relevance and visibility in the place that matters most.</p>
+      </div>
+
+      <div class="service-card reveal" style="--i: 4">
+        <div class="service-num"><span>05</span><span>WEB</span></div>
+        <h3 class="service-title">Website Development</h3>
+        <p class="service-body">First impressions build trust. We work with some of the best web designers and developers in the industry to bring you beautiful, professional, and highly converting websites.</p>
+      </div>
+
+      <div class="service-card reveal" style="--i: 5">
+        <div class="service-num"><span>06</span><span>CREATIVE</span></div>
+        <h3 class="service-title">Creative</h3>
+        <p class="service-body">Good creative is more than design and copywriting — it's hours of split testing and determining what's effective and why. We won't leave your reputation up to guesswork.</p>
+      </div>
+
+      <div class="service-card reveal" style="--i: 6">
+        <div class="service-num"><span>07</span><span>PAID</span></div>
+        <h3 class="service-title">Paid Media</h3>
+        <p class="service-body">With more than $10 million in ad spend under our belts, our industry-leading experts in media buying will make each dollar go further in acquiring more and better clients.</p>
+      </div>
+
+      <div class="service-card reveal" style="--i: 7">
+        <div class="service-num"><span>08</span><span>AUTOMATION</span></div>
+        <h3 class="service-title">Lead Gen &amp; Automation</h3>
+        <p class="service-body">Industry-leading tools and software that get the right information to your customers at the right time. Reduce your workload, and let the computers do the heavy lifting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. TRUST -->
+<section class="trust">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-chapter reveal">
+        <span class="section-num">IV / VII</span>
+        <span class="section-label">Track Record</span>
+      </div>
+      <h2 class="section-title reveal" style="--i: 1">
+        The kind of <em>number</em> that only comes from reps.
+      </h2>
+    </div>
+
+    <div class="trust-big reveal">
+      <div class="trust-stat"><span class="prefix">$</span>10M<span class="prefix">+</span></div>
+      <div class="trust-body">
+        <h3>Managed ad spend across paid media campaigns.</h3>
+        <p>Every dollar taught us something. What creative converts, what audiences actually click through, what channels waste budget — and what levers pull a pipeline open. That's the experience we bring to every account.</p>
+      </div>
+    </div>
+
+    <div class="trust-meta reveal" style="--i: 1">
+      <span>Verified · Source: Internal Reporting</span>
+      <span>20+ Specialists On Team</span>
+      <span>Agency Since 2020</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6. LOCAL / CAPABILITY -->
+<section class="block local">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-chapter reveal">
+        <span class="section-num">V / VII</span>
+        <span class="section-label">Capability Stack</span>
+      </div>
+      <h2 class="section-title reveal" style="--i: 1">
+        Eight levers. <em>One pipeline.</em>
+      </h2>
+    </div>
+
+    <div class="local-grid">
+      <div class="reveal">
+        <p class="local-lead">
+          Every lever is <em>available</em>, every lever is <em>connected</em>, and every lever is pointed at the same outcome — leads in your pipeline.
+        </p>
+      </div>
+      <ul class="cap-list">
+        <li class="reveal" style="--i: 0">
+          <span class="cap-name">Brand Design &amp; Strategy</span>
+          <span class="cap-tag">STRATEGY</span>
+        </li>
+        <li class="reveal" style="--i: 1">
+          <span class="cap-name">Social Media Management</span>
+          <span class="cap-tag">SOCIAL</span>
+        </li>
+        <li class="reveal" style="--i: 2">
+          <span class="cap-name">Social Growth</span>
+          <span class="cap-tag">GROWTH</span>
+        </li>
+        <li class="reveal" style="--i: 3">
+          <span class="cap-name">SEO</span>
+          <span class="cap-tag">SEARCH</span>
+        </li>
+        <li class="reveal" style="--i: 4">
+          <span class="cap-name">Website Development</span>
+          <span class="cap-tag">WEB</span>
+        </li>
+        <li class="reveal" style="--i: 5">
+          <span class="cap-name">Creative</span>
+          <span class="cap-tag">CREATIVE</span>
+        </li>
+        <li class="reveal" style="--i: 6">
+          <span class="cap-name">Paid Media</span>
+          <span class="cap-tag">PAID</span>
+        </li>
+        <li class="reveal" style="--i: 7">
+          <span class="cap-name">Lead Gen &amp; Automation</span>
+          <span class="cap-tag">AUTOMATION</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FINAL CTA -->
+<section class="final" id="book">
+  <div class="container">
+    <div class="final-inner">
+      <div class="final-tag reveal">Free Consultation · No Obligation</div>
+      <h2 class="final-headline reveal" style="--i: 1">
+        Ready to stop <em>guessing?</em>
+      </h2>
+      <p class="final-sub reveal" style="--i: 2">
+        Schedule a call with our team. We'll walk you through our process, brainstorm the fastest lever to pull for your pipeline, and answer any questions. No pitch. No pressure.
+      </p>
+      <a href="#" class="btn final-cta reveal" style="--i: 3">
+        Schedule a Consultation <span class="arrow">→</span>
+      </a>
+      <div class="final-micro reveal" style="--i: 4">
+        20+ Specialists<span class="divider">·</span>$10M+ Ad Spend<span class="divider">·</span>Accepting Clients
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div>
+        <a href="#top" class="logo"><span class="logo-mark"></span>We Got Leads</a>
+        <p class="footer-brand-note">A full-service digital agency built around one outcome: more leads in your pipeline.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Brand Design</a></li>
+          <li><a href="#services">Social Management</a></li>
+          <li><a href="#services">Social Growth</a></li>
+          <li><a href="#services">SEO</a></li>
+          <li><a href="#services">Web Development</a></li>
+          <li><a href="#services">Creative</a></li>
+          <li><a href="#services">Paid Media</a></li>
+          <li><a href="#services">Lead Gen</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul style="columns: 1">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#book">Free Consultation</a></li>
+          <li><a href="#book">Schedule a Call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2020– WE GOT LEADS AGENCY · ALL RIGHTS RESERVED</span>
+      <span>Accepting Clients</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky nav
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // hero fires on load + trigger strike-through
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hero .reveal').forEach((el) => el.classList.add('in-view'));
+    setTimeout(() => {
+      document.getElementById('heroHeadline').classList.add('animated');
+    }, 500);
+  });
+
+  // smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length <= 1) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const y = target.getBoundingClientRect().top + window.scrollY - 20;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
